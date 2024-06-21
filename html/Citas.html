@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/negativo-02.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../styles/style_citas.css">
+    <title>Citas</title>
+    <style>
+        .patient-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .patient-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #b1bbf3;
+            border-radius: 5px;
+        }
+
+        .waiting {
+            background-color: #f0f0f0;
+        }
+
+        .attending {
+            background-color: #d2ffcc;
+        }
+
+        .attended {
+            background-color: #ccffcc;
+        }
+
+        .button {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="background"></div>
+        <div class="menu">
+            <div class="contenedorlogo">
+                <img src="../images/logo-blanco-02.png" alt="Logo" class="logo" />
+            </div>
+            <div class="parent-link">
+                <h5><a class="social-link" href="javascript:cambiarInicio()">Inicio</a></h5>
+                <h5><a class="social-link" href="javascript:cambiarPacientes()">Pacientes</a></h5>
+                <h5><a class="social-link" href="javascript:cambiarReceta()">Prescripción</a></h5>
+            </div>
+        </div>
+        <div class="contenedorbase" id="base">
+            <div class="contenedorPacientes" id="pacientes">
+                <div class="contenedorbotones" id="botonesInicio">
+                    <button class="buttonP" onclick="mostrarPendientes()">Pendientes</button>
+                    <button class="buttonE">Emergencias</button>
+                </div>
+                <div class="contenedortabla" id="tablaPacientes">
+                    <ul class="patient-list" id="patientList">
+                        <!-- Lista de pacientes -->
+                    </ul>
+                </div>
+            </div>
+            <div class="contenedorDoctor" id="doctor">
+                <div class="circle"></div>
+                <div class="contenedorinf">
+                    <h4>Dr. Juan Perez Molina Chavarria</h4>
+                </div>
+                <div class="contenedorcargo"></div>
+                <div class="contenedorbot">
+                    <button class="buttonC">Cerrar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const pacientesPendientes = [
+            { nombre: 'Juan', numero: 1, estado: 'waiting' },
+            { nombre: 'Maria', numero: 2, estado: 'waiting' },
+            { nombre: 'Carlos', numero: 3, estado: 'waiting' }
+        ];
+
+        function actualizarLista() {
+            const lista = document.getElementById('patientList');
+            lista.innerHTML = '';
+            pacientesPendientes.forEach((paciente, index) => {
+                const li = document.createElement('li');
+                li.className = `patient-item ${paciente.estado}`;
+                li.innerHTML = `
+                    <span>${paciente.nombre} - ${paciente.numero}</span>
+                    <div>
+                        <button class="button" onclick="llamarPaciente(${index})">Llamar</button>
+                        <button class="button" onclick="finalizarPaciente(${index})">Finalizar</button>
+                    </div>
+                `;
+                lista.appendChild(li);
+            });
+        }
+
+        function mostrarPendientes() {
+            actualizarLista();
+        }
+
+        function llamarPaciente(index) {
+            pacientesPendientes.forEach((paciente, i) => {
+                if (i === index) {
+                    paciente.estado = 'attending';
+                } else if (paciente.estado === 'attending') {
+                    paciente.estado = 'waiting';
+                }
+            });
+            actualizarLista();
+        }
+
+        function finalizarPaciente(index) {
+            pacientesPendientes.splice(index, 1);
+            actualizarLista();
+        }
+
+        // Inicializar la lista de pacientes al cargar la página
+        document.addEventListener('DOMContentLoaded', () => {
+            mostrarPendientes();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+/*configuración*/
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', sans-serif;
+}
+.full-height {
+    height: 100%;
+}
+.flex-fill {
+    flex: 1;
+}
+h1 {
+    font-size: 52px;
+    margin-bottom: 32px;
+    line-height: 1.05;
+}
+h2 {
+    font-size: 30px;
+    margin-bottom: 48px;
+}
+h4{
+    margin: 0;
+}
+p{
+    margin: 0;
+}
+
+/*Contenedores*/
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("../images/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(15px); 
+    z-index: 0;
+}
+.content {
+    position: relative;
+    z-index: 1; 
+    width: 100%;
+    height: 100%;
+}
+
+/* Contenedor Encabezado */
+.menu {
+    display: flex;
+    width: auto;
+    height: 60px;
+    position: relative; 
+    z-index: 1;
+    background-color: #015D67;
+}
+/* Diseño logo */
+.contenedorlogo {
+    display: flex;
+    width: 180px;
+    margin-left: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.logo {
+    margin-top: 16px;
+    height: 90px;
+    width: 180px;
+}
+/* Diseño Menu */
+.parent-link {
+    width: 45%;
+    justify-content: space-between;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+}
+.social.links, .msg, a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+/*Contenedores Ajax*/
+.contenedorbase{
+    display: flex;
+    width: 100%;
+    height: 530px;
+    position: relative; 
+    z-index: 1;
+}
+.contenedorListar{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 95%;
+    margin: 10px;
+    position: relative; 
+    z-index: 1;
+    background-color: white;
+    border-radius: 20px;
+}
+.contenedorInicio{
+    display: flex;
+    width: 100%;
+    height: 80px;
+}
+
+.contenLogo{
+    display: flex;
+    width: 147px;
+    height: auto;
+    background-image: url('../images/logo_clinica-02.png');
+    background-size: cover; 
+    background-position: center;
+    margin-left: 50px;
+}
+.contenText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: auto;
+}
+.contenBoton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 13%;
+    margin-right: 50px;
+    height: auto;
+}
+
+/*boton Paciente*/
+.buttonP {
+    display: inline-block;
+    padding: 8px 40px;
+    background-color: #015D67;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid #015D67;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    margin: 1px;
+}
+.buttonP:hover {
+    background-color: #238f9b;
+    border-color: #238f9b;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.contenedorDatos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 150px;
+}
+.contenedorPaciente{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: auto;
+    margin: 20px;
+}
+.contenedorinf{
+    display: flex;
+    width: auto;
+    height: 100px;
+    border: 1px solid black;
+}
+.contenReceta{
+    width: 95%;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    overflow: auto;
+}
+
+/*buscador*/
+.search-container {
+    width: 100%;
+    position: relative;
+}
+.search-input {
+    width: 100%;
+    padding: 3px 10px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+.search-input:focus {
+    border-color: #007BFF;
+}
+.search-button {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.search-button img {
+    width: 20px;
+    height: 20px;
+}
+
+/*tabla*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    padding: 10px;
+}
+th, td {
+    border: 1px solid rgb(179, 172, 172);
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #015D67;
+    color: white;
+}
